@@ -22,10 +22,12 @@
 # for x in range (2018,0,-4):
 #     print(x)
 
-lowNum=int(3)
-highNum=int(50)
-mult=int(4)
+# lowNum=int(3)
+# highNum=int(50)
+# mult=int(4)
 
-for x in range (lowNum,highNum):
-    if x % mult == 0:
-        print(x)
+# for x in range (lowNum,highNum):
+#     if x % mult == 0:
+#         print(x)
+
+5+5
