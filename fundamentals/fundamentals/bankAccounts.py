@@ -1,10 +1,10 @@
 class BankAccount:
     bank_name="Mojo Dojo"
     int_rate = .01
+    balance = 0
 
-    def __init__(self, int_rate, balance):  
-        self.int_rate = int_rate
-        self.balance = balance
+    def __init__(self):  
+        pass
 
     def deposit(self, amount):
         self.balance+=amount
@@ -27,12 +27,16 @@ class BankAccount:
         cls.int_rate=new_rate
 
 
-a = BankAccount(.03,0)
-b = BankAccount(.02,100)
+a = BankAccount()
+a.int_rate=.03
+a.balance=100
+b = BankAccount()
 
 a.deposit(500).deposit(200).deposit(300).withdraw(900).yield_interest().display_account_info()
 b.deposit(500).deposit(200).withdraw(300).withdraw(100).withdraw(100).withdraw(100).yield_interest().display_account_info()
 
 BankAccount.change_int_rate(.05)
 
-print(BankAccount.int_rate)
+c = BankAccount()
+
+print(c.int_rate)
