@@ -9,19 +9,20 @@
 </head>
 <body>
     <div class="container d-flex justify-content-between p-3">
-        <h1>Sign Up</h1>
+        <h1>Edit User {{select_user.id}}</h1>
         <a href="/">Home</a>
     </div>
     <div class="container ">
-    <form action="/create" method="POST">
+    <form action="/user/{{select_user.id}}/edit" method="POST">
         <label for="fname">First Name:</label>
-        <input class= 'm-3' type="text" name="fname">
+        <input class= 'm-3' value = "{{select_user.first_name}}" placeholder = "{{select_user.first_name}}"type="text" name="fname">
         <label for="lname">Last Name:</label>
-        <input class= 'm-3' type="text" name="lname">
+        <input class= 'm-3' value = "{{select_user.last_name}}"type="text" name="lname">
         <label for="eml" >Email:</label>
-        <input class= 'm-3' type="text" name="eml">
+        <input class= 'm-3' value = "{{select_user.email}}" type="text" name="eml">
         <input type="submit" value="Submit">
     </form> 
+    <a href="/user/{{select_user.id}}" >Show User</a>
     </div>
 </body>
 </html>

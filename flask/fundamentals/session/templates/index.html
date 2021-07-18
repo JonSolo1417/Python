@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Let's Talk Forms!!</h1>
+
+    <h3>Create a User</h3>
+
+    <h5>{{ session['name'] }}</h5>
+    <h5>{{ session['email'] }}</h5>
+    <h5>{{ session['user'] }}</h5>
+    <h5>{{ session['total'] }}</h5>
+
+    <a href="/destroy">Destroy</a>
+
+    <button href="/destroy">Destroy Session</button>
+
+    <form action='/users' method='post'>
+        <input type="hidden" name="user" value="{{ session['total'] }}">
+
+        <label for='name'>Name:</label>
+        <input type='text' name='name'>
+
+        <label for='email'>Email:</label>
+        <input type='text' name='email'>
+
+        <input type='submit' value='Create User'>
+        
+    </form>
+
+    <form action='/users' method='post'>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Name: </label>
+            <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="Enter Name Here">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email Address: </label>
+            <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="Enter Email Address Here">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Please Select a Spider</label>
+            <select class="form-control" name="spider" id="exampleFormControlSelect1">
+                <option>Brown Recluse</option>
+                <option >Lucas the Spider</option>
+                <option>Charlotte</option>
+                <option>The Princess Bride Spider</option>
+                <option>Peter Parker</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Wow, thatstata lot of text!!</label>
+            <textarea class="form-control" name = "desc" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+</body>
+
+</html>

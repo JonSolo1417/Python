@@ -9,10 +9,16 @@ class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account = BankAccount(int_rate=0.02, balance=0)
+        self.checkingAccount = BankAccount(int_rate=0.02, balance=0)
+        self.savingsAccount = BankAccount(int_rate=0.05, balance=0)
 
-    def deposit(self, amount):
-        self.account.balance+=amount
+    def deposit(self, amount, string):
+        if string == "checking":
+            self.checkingAccount.balance+=amount
+        elif string == "savings":
+            self.savingsAccount.balance+=amount
+        else: 
+            print("Need to say checking or savings")
         return self
 
     def withdraw(self, amount):
@@ -20,7 +26,7 @@ class User:
         return self
 
     def display_account_info(self):
-        print('Balance:' + str(self.account.balance))
+        print('Balance:' + str(self.checkingAccount.balance))
         return self
 
     def yield_interest(self):
@@ -32,4 +38,5 @@ guido = User("Guido van Rossum", "guido@python.com")
 monty = User("Monty Python", "monty@python.com")
 jon = User("Jonathon Smith","jsmith@email.com")
 
-jon.deposit(500).withdraw(200).display_account_info().yield_interest().display_account_info()
+# jon.deposit(500,'checking').withdraw(200).display_account_info().yield_interest().display_account_info()
+jon.deposit(500,'checking').display_account_info()

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+
+        #color1{
+            background-color: {{color1}};
+        }
+        #color2{
+            background-color: {{color2}};
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello there!</h1>
+        <h2>{{ word }}</h2>
+
+        {%for x in range(0,number + 1,1)%}
+            <h3>{{word}}</h3>
+            {%if x % 2 == 0: %}
+                <p id = "color1">The number is: {{x}}</p>
+            {%else%}
+                <p id = "color2">This number is odd!</p>
+            {%endif%}
+        {%endfor%}
+
+
+    </div>
+</body>
+</html>
