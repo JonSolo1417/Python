@@ -47,4 +47,4 @@ def get_students(id):
         return redirect('/')
 
     print(students)
-    return render_template('dojo.html', all_students = students)
+    return render_template('dojo.html', all_students = students) 
