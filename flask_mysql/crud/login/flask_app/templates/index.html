@@ -8,6 +8,55 @@
     <title>Document</title>
 </head>
 <body class= 'd-flex m-auto'>
-    
+    <div class="container p-5 bg-dark text-white m-3">
+        <h1>Login</h1>
+        <form action = '/login' method="POST">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email:</label>
+                <input name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password:</label>
+                <input type="password" name ='password' class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="container p-5 bg-dark text-white m-3">
+        <h1>Register</h1>
+        <form action="/process" method="POST">
+            <div class="mb-3">
+                <div class="mb-3">
+                    <label  class="form-label">First Name:</label>
+                    <input name = 'fname' type="text" class="form-control" id="exampleInputtext1">
+                    <div id="emailHelp" class="form-text">{{message}}</div>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Last Name:</label>
+                    <input name = 'lname' type="text" class="form-control" id="exampleInputtext1">
+                </div>
+                <label  class="form-label">Email:</label>
+                <input name = 'mail' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label  name = 'pass' class="form-label">Password:</label>
+                <input name = 'pass' type="password" class="form-control" id="exampleInputPassword1">
+                <div id="emailHelp" class="form-text"></div>
+            </div>
+            <label for="" class="form-label">Confirm Password:</label>
+            <input  class="form-control" type="password" id="" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text"></div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            {% with messages = get_flashed_messages() %}  
+            {% if messages %}                         
+            {% for message in messages %}
+            <p class = text-danger>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}   
+        </form>
+    </div>
 </body>
 </html>
