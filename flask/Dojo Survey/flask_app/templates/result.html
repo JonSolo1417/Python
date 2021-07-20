@@ -14,13 +14,17 @@
             <p>Name:</p>
             <p>Dojo Location:</p>
             <p>Favorite Language:</p>
-            <p>Your Comment:</p>
+            {% if survey.comment != '' %}
+                <p>Your Comment:</p>
+            {% endif %}
         </div>
         <div class="my-3">
-            <p>{{name}}</p>
-            <p>{{location}}</p>
-            <p>{{language}}</p>
-            <p>{{comment}}</p>
+            <p>{{survey.name}}</p>
+            <p>{{survey.location}}</p>
+            <p>{{survey.language}}</p>
+            {% if survey.comment != '' %}
+                <p>{{survey.comment}}</p>
+            {% endif %}
             <form action="/back" method="post">
             <button type="submit" class="btn btn-primary">Go Back</button>
             </form>
