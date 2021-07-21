@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class= 'container'>
+    <div class="container p-3 d-flex justify-content-between">
+        <div class="container">
+            <h1>Edit your recipe!</h1> 
+        </div>
+        <div class= "container d-flex justify-content-end p-3">
+            <a class='mx-3 btn btn-primary' href="/dashboard">Dashboard</a>
+            <a class = 'btn btn-danger' href="destroy">Logout</a>
+        </div>
+    </div>
+    <div class="mb-3">
+        <form class="mb-3 d-flex" action="edit_recipe/{{recipe.id}}" method="POST">
+            <div class="container">
+                <label  class="mb-3 form-label">Name:</label>
+                <input name = 'name' class="mb-3 form-control" value={{recipe.name}}>
+                <label class="mb-3 form-label">Description:</label>
+                <textarea name ='description' class="mb-3 form-control" rows="5">{{recipe.description}}</textarea>
+                <label class="mb-3 form-label">Instructions:</label>
+                <textarea name ='instructions' class="mb-3 form-control" rows="5">{{recipe.instructions}}</textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                {% with messages = get_flashed_messages() %}  
+                {% if messages %}                         
+                {% for message in messages %}
+                <p class = 'text-danger m-3'>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}   
+            </div>
+            <div class="m-4 d-flex flex-column">
+                <label class="form-label">Date created:</label>
+                <input name = 'created_on' type="date" value={{recipe.created_on}}>
+                <label  class="mt-4 form-label">Under 30 min:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="under_30" value="yes" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                    yes
+                </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="under_30" value="no">
+                <label class="form-check-label" for="exampleRadios2">
+                    no
+                </label>
+                </div>
+            </div>
+        </form>
+    </div>
